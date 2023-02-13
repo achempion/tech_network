@@ -1,0 +1,16 @@
+FROM ruby:3.2.0
+
+WORKDIR /app
+
+ENV RAILS_ENV=production
+
+COPY Gemfile* .
+
+RUN bundle install --jobs 4 --retry 3
+
+COPY . .
+
+RUN rails tailwindcss:build
+RUN SECRET_KEY_BASE=test rails assets:precompile
+
+CMD rails s

@@ -1,5 +1,5 @@
-class FeedsController < ActionController::Base
+class FeedsController < ApplicationController
   def index
-    
+
   end
 end
