@@ -1,4 +1,4 @@
-class Moderation::WebsitesController < ApplicationController
+class Moderation::WebsitesController < Moderation::BaseController
   def index
     @websites = Website.limit(10).order(id: :desc)
   end
