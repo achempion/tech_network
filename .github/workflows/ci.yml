@@ -34,11 +34,10 @@ jobs:
           # REDIS_URL: redis://localhost:6379/0
           RAILS_ENV: test
         run: |
-          sudo apt-get -yqq install libpq-dev google-chrome-stable
+          sudo apt-get -yqq install libpq-dev
           gem install bundler
           bundle install --jobs 4 --retry 3
           rails tailwindcss:build
-          rails assets:precompile
           bundle exec rails db:prepare
           bundle exec rspec
 
