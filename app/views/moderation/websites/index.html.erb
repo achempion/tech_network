@@ -1,0 +1,7 @@
+<%= link_to "Add website", new_moderation_website_path, class: "btn" %>
+
+<% for website in @websites %>
+  <div class="mt-4">
+    <h2><%= website.feed_title %></h2>
+  </div>
+<% end %>

@@ -21,7 +21,7 @@ module RssService
           title: entry.title.content,
           updated_at: entry.updated.content,
           link: entry.link.href,
-          content: entry.summary&.content || entry.content&.content
+          content: entry.content&.content || entry.summary&.content
         }
       end
     }
