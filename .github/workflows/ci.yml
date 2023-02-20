@@ -38,6 +38,7 @@ jobs:
           gem install bundler
           bundle install --jobs 4 --retry 3
           rails tailwindcss:build
+          rails assets:precompile
           bundle exec rails db:prepare
           bundle exec rspec
 
