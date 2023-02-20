@@ -2,12 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+@layer base {
+  h1 {
+    @apply text-4xl mb-8 mt-12;
+  }
+  h2 {
+    @apply text-2xl mb-6 mt-10;
+  }
+
+  h3 {
+    @apply text-xl mb-4 mt-6;
+  }
+
+  input[type=submit], .btn {
+    @apply text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 cursor-pointer;
+  }
+
+  input { @apply mb-4; }
+}
 
 @layer components {
   .btn-primary {
     @apply py-2 px-4 bg-blue-200;
   }
 }
-
-*/

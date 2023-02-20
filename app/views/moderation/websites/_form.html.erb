@@ -1,0 +1,37 @@
+<%= form_with model: [:moderation, website_form.website], data: {controller: "moderation--website"} do |form| %>
+  <div>
+    <%= label(:website, :url) %>
+    <%= form.text_field :url, "data-action" => "debounced:input->moderation--website#urlChange" %>
+  </div>
+
+  <div>
+    <% if website_form.feeds.any? %>
+      <% for feed in website_form.feeds %>
+        <div class="flex mb-1">
+          <%= form.radio_button :feed_url, feed, onchange: "this.form.requestSubmit()" %>
+          <%= form.label(:feed_url, feed, value: feed, class: "ml-1") %>
+        </div>
+      <% end %>
+    <% else %>
+      Enter URL to fetch available feeds
+    <% end %>
+  </div>
+
+  <div>
+    <%= label(:website, :feed_title) %>
+    <%= form.text_field :feed_title, readonly: true %>
+  </div>
+
+  <% if website_form.feed %>
+    <div>
+      <%= form.submit "Save" %>
+    </div>
+    <div>Feed preview</div>
+    <% for item in website_form.feed[:items] %>
+      <h1><%=item[:title] %></h3>
+        <div>
+          <%= sanitize item[:content] %>
+        </div>
+    <% end %>
+  <% end %>
+<% end %>
